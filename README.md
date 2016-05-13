@@ -7,7 +7,7 @@
 * This is an Elixir application which aims to inquiry PM2.5 conveniently.
 * Framework of the application is based on [tacticiankerala/elixir-weather](https://github.com/tacticiankerala/elixir-weather).
 * Notice that only cities in China are supported now.
-* Virtually, the output value of command is Air Quality Index(AQI) which will update every hour, but not PM2.5 :)
+* Virtually, the output value of command is Air Quality Index(AQI) which will be updated every hour, but not PM2.5 :)
 
 ## Installation
 
