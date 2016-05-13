@@ -30,5 +30,4 @@ defmodule PM25.CLI do
   def process(%{city: city}) when is_binary(city) do
     fetch city
   end
-  def process(%{city: city}), do: %{city: to_string(city)}
 end

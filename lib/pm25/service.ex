@@ -14,7 +14,8 @@ defmodule PM25.Service do
   end
 
   def parse_response({:ok, %HTTPoison.Response{status_code: 200, body: body}}) do
-    Poison.Parser.parse!(body)
+    body
+    |> Poison.Parser.parse!
   end
 
   def parse_response({:error, %HTTPoison.Error{reason: reason}}) do
@@ -22,17 +23,22 @@ defmodule PM25.Service do
     System.halt(2)
   end
 
-  def extract_aqi([%{"citynow" => %{"AQI" => aqi}}]) do
-    aqi
-  end
-
-  def scan_data(%{"resultcode" => "200", "result" => result}) do
-    result
+  def scan_data(%{"showapi_res_code" => 0, "showapi_res_body" => body}) do
+    body
     |> extract_aqi
   end
 
-  def scan_data(%{"resultcode" => resultcode, "error_code" => error_code, "reason" => reason}) do
-    IO.puts "resultcode: #{resultcode}\nerrorcode: #{error_code}\nreason: #{reason}"
+  def scan_data(%{"showapi_res_code" => res_code, "showapi_res_error" => res_error}) do
+    IO.puts "showapi_res_code: #{res_code}\nshowapi_res_error: #{res_error}"
+    System.halt(2)
+  end
+  
+  def extract_aqi(%{"pm" => %{"aqi" => aqi}}) do
+    "#{aqi}"
+  end
+
+  def extract_aqi(%{"error_info" => error_info}) do
+    IO.puts error_info
     System.halt(2)
   end
 

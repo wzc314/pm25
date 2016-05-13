@@ -29,8 +29,8 @@ defmodule Pm25.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      httpoison: "~> 0.8",
-      poison:    "~> 1.5"
+      httpoison: "~> 0.8.3",
+      poison:    "~> 2.1.0"
     ]
   end
 

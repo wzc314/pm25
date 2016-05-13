@@ -28,4 +28,4 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
-config :pm25, pm25_api: "http://web.juhe.cn:8080/environment/air/cityair?key=a4d94f1093940cbb57857099db2daccb"
+config :pm25, pm25_api: "http://route.showapi.com/104-29?showapi_appid=18879&showapi_sign=ad514df6514e4fb784b949c25788f96f"
